@@ -99,4 +99,14 @@ public class MemberController {
 			new MemberMenu().displayFail("회원 삭제에 실패하였습니다.");
 		}
 	}
+	
+	public void memberLogin(String userId, String userPwd) {
+		int result = new MemberService().memberLogin(userId, userPwd);
+		
+		if (result > 0) {
+			new MemberMenu().displaySuccess("아이디 "+userId + "에 성공적으로 로그인 하였습니다.");
+		} else {
+			new MemberMenu().displayFail("존재하지 않는 회원 이거나 아이디 혹은 비밀번호가 올바르지 않습니다.");
+		}
+	}
 }

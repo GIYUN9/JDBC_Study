@@ -245,5 +245,24 @@ public class MemberDao {
 		
 		return result;
 	}
+	
+	public int memberLogin(Connection conn, String userId, String userPwd) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = "SELECT * FROM MEMBER WHERE USERID = ? AND USERPWD = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			pstmt.setString(2, userPwd);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
 
 }

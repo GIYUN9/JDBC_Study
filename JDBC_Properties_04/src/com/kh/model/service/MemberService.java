@@ -82,4 +82,12 @@ public class MemberService {
 		
 		return result;
 	}
+	
+	public int memberLogin(String userId, String userPwd) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new MemberDao().memberLogin(conn, userId, userPwd);
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
 }
