@@ -18,4 +18,7 @@
 	<entry key="deleteMember">
 		DELETE FROM MEMBER WHERE USERID = ?
 	</entry>
+	<entry key="memberLogin">
+		SELECT * FROM MEMBER WHERE USERID = ? AND USERPWD = ?
+	</entry>
 </properties>

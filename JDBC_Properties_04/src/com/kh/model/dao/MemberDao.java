@@ -250,7 +250,7 @@ public class MemberDao {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
-		String sql = "SELECT * FROM MEMBER WHERE USERID = ? AND USERPWD = ?";
+		String sql = prop.getProperty("memberLogin");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
